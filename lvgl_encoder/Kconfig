@@ -1,0 +1,29 @@
+#
+# For a description of the syntax of this configuration file,
+# see the file kconfig-language.txt in the NuttX tools repository.
+#
+
+config EXAMPLES_LVGL_ENCODER
+	tristate "LVGL Encoder demo"
+	default n
+	---help---
+		Enable the LVGL Encoder demo
+
+if EXAMPLES_LVGL_ENCODER
+
+config EXAMPLES_LVGL_ENCODER_PROGNAME
+	string "Program name"
+	default "lvencon"
+	---help---
+		This is the name of the program that will be used when the NSH ELF
+		program is installed.
+
+config EXAMPLES_LVGL_ENCODER_PRIORITY
+	int "Task priority"
+	default 100
+
+config EXAMPLES_LVGL_ENCODER_STACKSIZE
+	int "Stack size"
+	default DEFAULT_TASK_STACKSIZE
+
+endif
